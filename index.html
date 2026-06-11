@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Awesome Trackers</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f7f8fa;
+      color: #1a1a2e;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #e8e8f0;
+      padding: 2rem 2.5rem 1.5rem;
+      border-bottom: 3px solid #4f8ef7;
+    }
+
+    header h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #9999bb;
+    }
+
+    header a {
+      color: #4f8ef7;
+      text-decoration: none;
+    }
+
+    header a:hover { text-decoration: underline; }
+
+    main {
+      padding: 2rem 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    #search-box {
+      margin-bottom: 1.25rem;
+    }
+
+    #search-box input {
+      width: 100%;
+      max-width: 420px;
+      padding: 0.5rem 0.85rem;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+      color: #1a1a2e;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    #search-box input:focus { border-color: #4f8ef7; }
+
+    table.dataTable {
+      width: 100% !important;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+
+    table.dataTable thead th {
+      background: #1a1a2e;
+      color: #e8e8f0;
+      font-weight: 500;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.75rem 1rem;
+      border-bottom: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    table.dataTable thead th:hover { background: #2a2a4e; }
+
+    table.dataTable tbody tr {
+      border-bottom: 1px solid #ececf3;
+      transition: background 0.1s;
+    }
+
+    table.dataTable tbody tr:last-child { border-bottom: none; }
+    table.dataTable tbody tr:hover { background: #f0f4ff; }
+
+    table.dataTable tbody td {
+      padding: 0.65rem 1rem;
+      font-size: 14px;
+      vertical-align: top;
+    }
+
+    table.dataTable tbody td a {
+      color: #4f8ef7;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    table.dataTable tbody td a:hover { text-decoration: underline; }
+
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_paginate {
+      font-size: 13px;
+      color: #666;
+      margin-top: 0.75rem;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+      background: #4f8ef7;
+      color: #fff !important;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 12px;
+      color: #999;
+    }
+
+    @media (max-width: 700px) {
+      main, header { padding: 1rem; }
+      table.dataTable tbody td { font-size: 12px; padding: 0.5rem 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🎯 Awesome Trackers</h1>
+  <p>A curated list of tools for 2D/3D object and trajectory tracking &mdash;
+     <a href="https://github.com/rodrigo-j-goncalves/awesome-trackers">contribute on GitHub</a>
+     &nbsp;|&nbsp; last updated: 2026-06-11
+  </p>
+</header>
+
+<main>
+  <div id="search-box">
+    <input type="text" id="global-search" placeholder="Search all columns…" autocomplete="off" />
+  </div>
+
+  <table id="trackers" class="dataTable" style="width:100%">
+    <thead><tr><th>Name</th><th>URL</th><th>Category</th><th>Type</th><th>License</th><th>Best for</th><th>Notes</th></tr></thead>
+    <tbody>
+<tr><td><a href="https://imagej.net/plugins/trackmate/" target="_blank" rel="noopener">TrackMate</a></td><td>https://imagej.net/plugins/trackmate/</td><td>Fiji/ImageJ</td><td>GUI; Python</td><td>free</td><td>Fluorescent spots</td><td>Fiji plugin; LoG/DoG/HessianDet + LAP/KF/simple; scripting API; widely cited</td></tr>
+<tr><td><a href="https://imagej.net/plugins/mosaic-suite" target="_blank" rel="noopener">MosaicSuite</a></td><td>https://imagej.net/plugins/mosaic-suite</td><td>Fiji/ImageJ</td><td>GUI</td><td>free</td><td>Fluorescent particles</td><td>Fiji plugin; particle tracker based on Sbalzarini &amp; Koumoutsakos 2005</td></tr>
+<tr><td><a href="https://imagej.net/plugins/manual-tracking" target="_blank" rel="noopener">Manual Tracker</a></td><td>https://imagej.net/plugins/manual-tracking</td><td>Fiji/ImageJ</td><td>GUI</td><td>free</td><td>Low-density / QC</td><td>Fiji plugin; click-to-track; useful for ground truth and validation</td></tr>
+<tr><td><a href="http://soft-matter.github.io/trackpy/" target="_blank" rel="noopener">Trackpy</a></td><td>http://soft-matter.github.io/trackpy/</td><td>Python</td><td>Python</td><td>free</td><td>Colloids / plankton</td><td>Pandas-based; Crocker-Grier linking; fast; Pythonic; good for batch</td></tr>
+<tr><td><a href="https://opencv.org/" target="_blank" rel="noopener">OpenCV</a></td><td>https://opencv.org/</td><td>Python</td><td>Python; C++</td><td>free</td><td>Custom pipelines</td><td>Background subtraction + contour detection + CSRT/KCF trackers; very flexible but requires coding</td></tr>
+<tr><td><a href="https://github.com/yfukai/laptrack" target="_blank" rel="noopener">Laptrack</a></td><td>https://github.com/yfukai/laptrack</td><td>Python</td><td>Python</td><td>free</td><td>General 2D/3D</td><td>LAP-based; modular cost functions; gap closing; integrates with napari</td></tr>
+<tr><td><a href="https://github.com/quantumjot/btrack" target="_blank" rel="noopener">Btrack</a></td><td>https://github.com/quantumjot/btrack</td><td>Python</td><td>Python</td><td>free</td><td>Cell tracking</td><td>Bayesian belief propagation; handles division/death; napari plugin available</td></tr>
+<tr><td><a href="https://github.com/facebookresearch/sam2" target="_blank" rel="noopener">SAM 2</a></td><td>https://github.com/facebookresearch/sam2</td><td>Deep learning</td><td>ML/DL; Python</td><td>free</td><td>Arbitrary objects</td><td>Segment Anything Model 2; video segmentation + tracking; zero-shot; very promising for plankton</td></tr>
+<tr><td><a href="https://github.com/facebookresearch/sam3" target="_blank" rel="noopener">SAM 3</a></td><td>https://github.com/facebookresearch/sam3</td><td>Deep learning</td><td>ML/DL; Python</td><td>free</td><td>Arbitrary objects (text prompt)</td><td>SAM 3 adds text/exemplar prompts and tracks all instances at once; SAM 3.1 adds faster multi-object tracking</td></tr>
+<tr><td><a href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noopener">YOLO + ByteTrack</a></td><td>https://github.com/ultralytics/ultralytics</td><td>Deep learning</td><td>ML/DL; Python</td><td>free</td><td>Multi-object / dense</td><td>Detection + tracking pipeline; needs training data; fast inference</td></tr>
+<tr><td><a href="https://www.mackenziemathislab.org/deeplabcut" target="_blank" rel="noopener">DeepLabCut</a></td><td>https://www.mackenziemathislab.org/deeplabcut</td><td>Deep learning</td><td>ML/DL; Python</td><td>free</td><td>Pose / body parts</td><td>Keypoint tracking; originally for animals; 2D + 3D; needs labeled data</td></tr>
+<tr><td><a href="https://sleap.ai/" target="_blank" rel="noopener">SLEAP</a></td><td>https://sleap.ai/</td><td>Deep learning</td><td>ML/DL; GUI</td><td>free</td><td>Animal pose</td><td>Multi-animal pose tracking; GUI for labeling + training; DLC alternative</td></tr>
+<tr><td><a href="https://physlets.org/tracker/" target="_blank" rel="noopener">Tracker</a></td><td>https://physlets.org/tracker/</td><td>Standalone GUI</td><td>GUI</td><td>free</td><td>Physics / education</td><td>Java; manual + auto-tracking; calibration; widely used in biomechanics and teaching</td></tr>
+<tr><td><a href="https://www.cellprofiler.org/" target="_blank" rel="noopener">CellProfiler</a></td><td>https://www.cellprofiler.org/</td><td>Standalone GUI</td><td>GUI; Python</td><td>free</td><td>Cell biology</td><td>Pipeline-based; LAP tracking module; good for fluorescence; batch processing</td></tr>
+<tr><td><a href="https://icy.bioimageanalysis.org/" target="_blank" rel="noopener">Icy</a></td><td>https://icy.bioimageanalysis.org/</td><td>Standalone GUI</td><td>GUI</td><td>free</td><td>Bio imaging</td><td>Java; plugin ecosystem; spot detector + track manager; less maintained now</td></tr>
+<tr><td><a href="https://www.imaris.ox.com/" target="_blank" rel="noopener">Imaris</a></td><td>https://www.imaris.ox.com/</td><td>Standalone GUI</td><td>GUI</td><td>paid</td><td>3D bio imaging</td><td>Gold standard for fluorescent cell tracking; 2D also supported; expensive</td></tr>
+<tr><td><a href="https://www.openptv.net/" target="_blank" rel="noopener">OpenPTV / PyPTV</a></td><td>https://www.openptv.net/</td><td>Plankton / aquatic</td><td>Python; C++</td><td>free</td><td>3D PTV (multi-cam)</td><td>3D reconstruction from multi-camera; 2D also possible per-camera</td></tr>
+<tr><td><a href="https://www.planktoscope.org/" target="_blank" rel="noopener">PlanktoScope</a></td><td>https://www.planktoscope.org/</td><td>Plankton / aquatic</td><td>Python</td><td>partial</td><td>In-situ plankton</td><td>Associated with PlanktoScope hardware; flow-through imaging; classification-focused</td></tr>
+<tr><td><a href="https://www.napari-hub.org/plugins/napari-trackpy" target="_blank" rel="noopener">napari-trackpy</a></td><td>https://www.napari-hub.org/plugins/napari-trackpy</td><td>Napari ecosystem</td><td>Python; GUI</td><td>free</td><td>Interactive + batch</td><td>Trackpy wrapped in napari; visual inspection + parameter tuning</td></tr>
+<tr><td><a href="https://www.napari-hub.org/plugins/btrack" target="_blank" rel="noopener">napari-btrack</a></td><td>https://www.napari-hub.org/plugins/btrack</td><td>Napari ecosystem</td><td>Python; GUI</td><td>free</td><td>Cell tracking</td><td>Btrack GUI in napari; good for dense dividing cells</td></tr>
+    </tbody>
+  </table>
+</main>
+
+<footer>
+  Generated from <code>trackers.csv</code> on 2026-06-11 &mdash;
+  <a href="https://github.com/rodrigo-j-goncalves/awesome-trackers">awesome-trackers</a>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+<script>
+  const table = new DataTable('#trackers', {
+    pageLength: 25,
+    order: [],
+    language: {
+      search: '',
+      searchPlaceholder: 'Search…',
+      info: '_START_–_END_ of _TOTAL_ tools',
+      infoEmpty: '0 tools',
+      infoFiltered: '(filtered from _MAX_)',
+    },
+  });
+
+  table.column(1).visible(false);
+
+  // Wire up our own search box to DataTables
+  document.getElementById('global-search').addEventListener('input', function () {
+    table.search(this.value).draw();
+  });
+
+  // Hide the default DataTables search box
+  document.querySelector('.dataTables_filter').style.display = 'none';
+</script>
+
+</body>
+</html>
