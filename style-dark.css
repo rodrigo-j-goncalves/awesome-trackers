@@ -10,16 +10,12 @@
    base00 #657b83  secondary text
    base0  #839496  body text
    base1  #93a1a1  emphasis text
-   base2  #eee8d5  light content (unused)
-   base3  #fdf6e3  light bg (unused)
    yellow #b58900
    cyan   #2aa198
    blue   #268bd2
-   green  #859900
-   red    #dc322f
 */
 
-[data-theme="dark"] {
+:root {
   --bg:                  #002b36;
   --surface:             #073642;
   --surface2:            #063340;
@@ -45,5 +41,4 @@
   --filter-border-bottom:#2aa198;
   --input-bg:            #002b36;
   --shadow:              rgba(0,0,0,0.4);
-  --toggle-label:        "☀️ Light";
 }

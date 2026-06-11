@@ -1,7 +1,7 @@
 /* =============================================
    Awesome Trackers — base styles
-   Theme variables are in style-dark.css and
-   style-light.css. Do not put colors here.
+   Theme variables live in style-dark.css (default)
+   and style-light.css (override). No colors here.
    ============================================= */
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -30,36 +30,31 @@ header {
 }
 
 .header-text h1 {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.3rem;
   font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-strong);
 }
 
-.header-text .author {
-  font-size: 0.85rem;
+.header-text .tagline {
+  margin: 0 0 0.2rem;
+  font-size: 0.95rem;
   color: var(--text-em);
-  margin: 0 0 0.15rem;
 }
 
-.header-text .author strong {
-  font-weight: 700;
-  color: var(--text-strong);
-}
-
-.header-text p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-.header-text a {
+.header-text .tagline a {
   color: var(--link);
   text-decoration: none;
 }
 
-.header-text a:hover { color: var(--link-hover); text-decoration: underline; }
+.header-text .tagline a:hover { color: var(--link-hover); text-decoration: underline; }
+
+.header-text .meta {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
 
 /* --- Theme toggle button --- */
 #theme-toggle {

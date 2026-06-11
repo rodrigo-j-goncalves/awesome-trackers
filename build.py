@@ -109,7 +109,7 @@ def build_html(columns, rows):
     hide_url_js = f"table.column({url_col_index}).visible(false);" if url_col_index is not None else ""
 
     return f"""<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -124,11 +124,10 @@ def build_html(columns, rows):
 <header>
   <div class="header-text">
     <h1>🎯 Awesome Trackers</h1>
-    <p class="author"><strong>Author</strong> Rodrigo J. Gonçalves</p>
-    <p>A curated list of tools for 2D/3D object and trajectory tracking &mdash;
-       <a href="https://github.com/rodrigo-j-goncalves/awesome-trackers">contribute on GitHub</a>
-       &nbsp;|&nbsp; last updated: {today}
+    <p class="tagline">A curated list of tools for 2D/3D object and trajectory tracking &mdash;
+      <a href="https://github.com/rodrigo-j-goncalves/awesome-trackers">contribute on GitHub</a>
     </p>
+    <p class="meta">Maintainer: Rodrigo J. Gonçalves &nbsp;|&nbsp; Last updated: {today}</p>
   </div>
   <button id="theme-toggle" aria-label="Toggle light/dark theme">☀️ Light</button>
 </header>
@@ -193,20 +192,26 @@ def build_html(columns, rows):
 
   document.querySelector('.dataTables_filter').style.display = 'none';
 
-  // Theme toggle
-  const root = document.documentElement;
+  // Theme toggle — dark is default (:root), light overrides via [data-theme="light"]
   const btn = document.getElementById('theme-toggle');
 
   function applyTheme(theme) {{
-    root.setAttribute('data-theme', theme);
-    btn.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+    if (theme === 'light') {{
+      document.documentElement.setAttribute('data-theme', 'light');
+      btn.textContent = '🌙 Dark';
+    }} else {{
+      document.documentElement.removeAttribute('data-theme');
+      btn.textContent = '☀️ Light';
+    }}
     localStorage.setItem('theme', theme);
   }}
 
   btn.addEventListener('click', function () {{
-    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'light' ? 'dark' : 'light');
   }});
 
+  // Restore saved preference
   const saved = localStorage.getItem('theme');
   if (saved) applyTheme(saved);
 </script>

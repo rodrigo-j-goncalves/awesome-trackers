@@ -7,11 +7,8 @@
    base3  #fdf6e3  lightest bg
    base2  #eee8d5  surface
    base1  #93a1a1  secondary text
-   base0  #839496  body text
    base00 #657b83  emphasis text
-   base01 #586e75  strong text
    base02 #073642  headings / th bg
-   base03 #002b36  darkest (unused)
    yellow #b58900
    cyan   #2aa198
    blue   #268bd2
@@ -43,5 +40,4 @@
   --filter-border-bottom:#2aa198;
   --input-bg:            #fdf6e3;
   --shadow:              rgba(0,0,0,0.1);
-  --toggle-label:        "🌙 Dark";
 }
