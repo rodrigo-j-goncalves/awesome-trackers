@@ -190,7 +190,7 @@ def build_html(columns, rows):
     document.querySelectorAll('.col-filter-select').forEach(el => el.selectedIndex = 0);
   }});
 
-  document.querySelector('.dataTables_filter').style.display = 'none';
+  document.querySelector('.dt-search').style.display = 'none';
 
   // Theme toggle — dark is default (:root), light overrides via [data-theme="light"]
   const btn = document.getElementById('theme-toggle');
