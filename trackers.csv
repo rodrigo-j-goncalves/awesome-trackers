@@ -1,21 +1,22 @@
 Name,URL,Category,Type,License,Best for,Notes
-TrackMate,https://imagej.net/plugins/trackmate/,Fiji/ImageJ,GUI; Python,free,Fluorescent spots,Fiji plugin; LoG/DoG/HessianDet + LAP/KF/simple; scripting API; widely cited
-MosaicSuite,https://imagej.net/plugins/mosaic-suite,Fiji/ImageJ,GUI,free,Fluorescent particles,Fiji plugin; particle tracker based on Sbalzarini & Koumoutsakos 2005
-Manual Tracker,https://imagej.net/plugins/manual-tracking,Fiji/ImageJ,GUI,free,Low-density / QC,Fiji plugin; click-to-track; useful for ground truth and validation
-Trackpy,http://soft-matter.github.io/trackpy/,Python,Python,free,Colloids / plankton,Pandas-based; Crocker-Grier linking; fast; Pythonic; good for batch
-OpenCV,https://opencv.org/,Python,Python; C++,free,Custom pipelines,Background subtraction + contour detection + CSRT/KCF trackers; very flexible but requires coding
-Laptrack,https://github.com/yfukai/laptrack,Python,Python,free,General 2D/3D,LAP-based; modular cost functions; gap closing; integrates with napari
 Btrack,https://github.com/quantumjot/btrack,Python,Python,free,Cell tracking,Bayesian belief propagation; handles division/death; napari plugin available
+CellProfiler,https://www.cellprofiler.org/,Standalone GUI,GUI; Python,free,Cell biology,Pipeline-based; LAP tracking module; good for fluorescence; batch processing
+DeepLabCut,https://www.mackenziemathislab.org/deeplabcut,Deep learning,ML/DL; Python,free,Pose / body parts,Keypoint tracking; originally for animals; 2D + 3D; needs labeled data
+Icy,https://icy.bioimageanalysis.org/,Standalone GUI,GUI,free,Bio imaging,Java; plugin ecosystem; spot detector + track manager; less maintained now
+idtracker.ai,https://idtracker.ai/,Deep learning,Python; GUI,free,"Apparently, anything!","idtracker.ai is a Python package available on PyPI, fully compatible with Windows, Linux, and macOS."
+Imaris,https://www.imaris.ox.com/,Standalone GUI,GUI,paid,3D bio imaging,Gold standard for fluorescent cell tracking; 2D also supported; expensive
+Laptrack,https://github.com/yfukai/laptrack,Python,Python,free,General 2D/3D,LAP-based; modular cost functions; gap closing; integrates with napari
+Manual Tracker,https://imagej.net/plugins/manual-tracking,Fiji/ImageJ,GUI,free,Low-density / QC,Fiji plugin; click-to-track; useful for ground truth and validation
+napari-btrack,https://www.napari-hub.org/plugins/btrack,Napari ecosystem,Python; GUI,free,Cell tracking,Btrack GUI in napari; good for dense dividing cells
+napari-trackpy,https://www.napari-hub.org/plugins/napari-trackpy,Napari ecosystem,Python; GUI,free,Interactive + batch,Trackpy wrapped in napari; visual inspection + parameter tuning
+OpenCV,https://opencv.org/,Python,Python; C++,free,Custom pipelines,Background subtraction + contour detection + CSRT/KCF trackers; very flexible but requires coding
+OpenPTV / PyPTV,https://www.openptv.net/,Plankton / aquatic,Python; C++,free,3D PTV (multi-cam),3D reconstruction from multi-camera; 2D also possible per-camera
+ParticleTracker 2D and 3D,https://sbalzarini-lab.org/ParticleTracker/,Fiji/ImageJ,GUI,free,Fluorescent particles,An ImageJ Plugin for multiple particle detection and tracking from digital videos. Based on Sbalzarini & Koumoutsakos 2005. Part of the MOSAIC toolbox
+PlanktoScope,https://www.planktoscope.org/,Plankton / aquatic,Python,partial,In-situ plankton,Associated with PlanktoScope hardware; flow-through imaging; classification-focused
 SAM 2,https://github.com/facebookresearch/sam2,Deep learning,ML/DL; Python,free,Arbitrary objects,Segment Anything Model 2; video segmentation + tracking; zero-shot; very promising for plankton
 SAM 3,https://github.com/facebookresearch/sam3,Deep learning,ML/DL; Python,free,Arbitrary objects (text prompt),SAM 3 adds text/exemplar prompts and tracks all instances at once; SAM 3.1 adds faster multi-object tracking
-YOLO + ByteTrack,https://github.com/ultralytics/ultralytics,Deep learning,ML/DL; Python,free,Multi-object / dense,Detection + tracking pipeline; needs training data; fast inference
-DeepLabCut,https://www.mackenziemathislab.org/deeplabcut,Deep learning,ML/DL; Python,free,Pose / body parts,Keypoint tracking; originally for animals; 2D + 3D; needs labeled data
 SLEAP,https://sleap.ai/,Deep learning,ML/DL; GUI,free,Animal pose,Multi-animal pose tracking; GUI for labeling + training; DLC alternative
 Tracker,https://physlets.org/tracker/,Standalone GUI,GUI,free,Physics / education,Java; manual + auto-tracking; calibration; widely used in biomechanics and teaching
-CellProfiler,https://www.cellprofiler.org/,Standalone GUI,GUI; Python,free,Cell biology,Pipeline-based; LAP tracking module; good for fluorescence; batch processing
-Icy,https://icy.bioimageanalysis.org/,Standalone GUI,GUI,free,Bio imaging,Java; plugin ecosystem; spot detector + track manager; less maintained now
-Imaris,https://www.imaris.ox.com/,Standalone GUI,GUI,paid,3D bio imaging,Gold standard for fluorescent cell tracking; 2D also supported; expensive
-OpenPTV / PyPTV,https://www.openptv.net/,Plankton / aquatic,Python; C++,free,3D PTV (multi-cam),3D reconstruction from multi-camera; 2D also possible per-camera
-PlanktoScope,https://www.planktoscope.org/,Plankton / aquatic,Python,partial,In-situ plankton,Associated with PlanktoScope hardware; flow-through imaging; classification-focused
-napari-trackpy,https://www.napari-hub.org/plugins/napari-trackpy,Napari ecosystem,Python; GUI,free,Interactive + batch,Trackpy wrapped in napari; visual inspection + parameter tuning
-napari-btrack,https://www.napari-hub.org/plugins/btrack,Napari ecosystem,Python; GUI,free,Cell tracking,Btrack GUI in napari; good for dense dividing cells
+TrackMate,https://imagej.net/plugins/trackmate/,Fiji/ImageJ,GUI; Python,free,Fluorescent spots,Fiji plugin; LoG/DoG/HessianDet + LAP/KF/simple; scripting API; widely cited
+Trackpy,http://soft-matter.github.io/trackpy/,Python,Python,free,Colloids / plankton,Pandas-based; Crocker-Grier linking; fast; Pythonic; good for batch
+YOLO + ByteTrack,https://github.com/ultralytics/ultralytics,Deep learning,ML/DL; Python,free,Multi-object / dense,Detection + tracking pipeline; needs training data; fast inference
