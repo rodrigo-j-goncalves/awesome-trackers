@@ -53,6 +53,10 @@
 
     #search-box {
       margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     #search-box input {
@@ -69,6 +73,19 @@
     }
 
     #search-box input:focus { border-color: #4f8ef7; }
+
+    #clear-btn {
+      padding: 0.5rem 1rem;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+      color: #555;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    #clear-btn:hover { background: #f0f4ff; border-color: #4f8ef7; color: #1a1a2e; }
 
     table.dataTable {
       width: 100% !important;
@@ -93,6 +110,39 @@
     }
 
     table.dataTable thead th:hover { background: #2a2a4e; }
+
+    tr.filter-row th {
+      background: #2a2a4e;
+      padding: 0.4rem 0.5rem;
+    }
+
+    .col-filter-text {
+      width: 100%;
+      padding: 0.3rem 0.5rem;
+      font-size: 12px;
+      border: 1px solid #445;
+      border-radius: 4px;
+      background: #1a1a2e;
+      color: #e8e8f0;
+      outline: none;
+    }
+
+    .col-filter-text::placeholder { color: #6677aa; }
+    .col-filter-text:focus { border-color: #4f8ef7; }
+
+    .col-filter-select {
+      width: 100%;
+      padding: 0.3rem 0.4rem;
+      font-size: 12px;
+      border: 1px solid #445;
+      border-radius: 4px;
+      background: #1a1a2e;
+      color: #e8e8f0;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .col-filter-select:focus { border-color: #4f8ef7; }
 
     table.dataTable tbody tr {
       border-bottom: 1px solid #ececf3;
@@ -161,10 +211,14 @@
 <main>
   <div id="search-box">
     <input type="text" id="global-search" placeholder="Search all columns…" autocomplete="off" />
+    <button id="clear-btn">Clear all filters</button>
   </div>
 
   <table id="trackers" class="dataTable" style="width:100%">
-    <thead><tr><th>Name</th><th>URL</th><th>Category</th><th>Type</th><th>License</th><th>Best for</th><th>Notes</th></tr></thead>
+    <thead>
+      <tr><th>Name</th><th>URL</th><th>Category</th><th>Type</th><th>License</th><th>Best for</th><th>Notes</th></tr>
+      <tr class='filter-row'><th><input type="text" id="col-filter-0" class="col-filter col-filter-text" data-col="0" placeholder="filter…" autocomplete="off" /></th><th></th><th><select id="col-filter-2" class="col-filter col-filter-select" data-col="2"><option value="">— all —</option><option value="Deep learning">Deep learning</option><option value="Fiji/ImageJ">Fiji/ImageJ</option><option value="Napari ecosystem">Napari ecosystem</option><option value="Plankton / aquatic">Plankton / aquatic</option><option value="Python">Python</option><option value="Standalone GUI">Standalone GUI</option></select></th><th><select id="col-filter-3" class="col-filter col-filter-select" data-col="3"><option value="">— all —</option><option value="GUI">GUI</option><option value="GUI; Python">GUI; Python</option><option value="ML/DL; GUI">ML/DL; GUI</option><option value="ML/DL; Python">ML/DL; Python</option><option value="Python">Python</option><option value="Python; C++">Python; C++</option><option value="Python; GUI">Python; GUI</option></select></th><th><select id="col-filter-4" class="col-filter col-filter-select" data-col="4"><option value="">— all —</option><option value="free">free</option><option value="paid">paid</option><option value="partial">partial</option></select></th><th><input type="text" id="col-filter-5" class="col-filter col-filter-text" data-col="5" placeholder="filter…" autocomplete="off" /></th><th><input type="text" id="col-filter-6" class="col-filter col-filter-text" data-col="6" placeholder="filter…" autocomplete="off" /></th></tr>
+    </thead>
     <tbody>
 <tr><td><a href="https://imagej.net/plugins/trackmate/" target="_blank" rel="noopener">TrackMate</a></td><td>https://imagej.net/plugins/trackmate/</td><td>Fiji/ImageJ</td><td>GUI; Python</td><td>free</td><td>Fluorescent spots</td><td>Fiji plugin; LoG/DoG/HessianDet + LAP/KF/simple; scripting API; widely cited</td></tr>
 <tr><td><a href="https://imagej.net/plugins/mosaic-suite" target="_blank" rel="noopener">MosaicSuite</a></td><td>https://imagej.net/plugins/mosaic-suite</td><td>Fiji/ImageJ</td><td>GUI</td><td>free</td><td>Fluorescent particles</td><td>Fiji plugin; particle tracker based on Sbalzarini &amp; Koumoutsakos 2005</td></tr>
@@ -198,8 +252,14 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
 <script>
+  function escapeRegex(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
   const table = new DataTable('#trackers', {
     pageLength: 25,
+    orderCellsTop: true,
+    fixedHeader: true,
     order: [],
     language: {
       search: '',
@@ -212,9 +272,38 @@
 
   table.column(1).visible(false);
 
-  // Wire up our own search box to DataTables
+  // Global search
   document.getElementById('global-search').addEventListener('input', function () {
     table.search(this.value).draw();
+  });
+
+  // Per-column filters
+  
+  document.getElementById('col-filter-0').addEventListener('input', function() {
+    table.column(0).search(this.value).draw();
+  });
+  document.getElementById('col-filter-2').addEventListener('change', function() {
+    table.column(2).search(this.value ? '^' + escapeRegex(this.value) + '$' : '', true, false).draw();
+  });
+  document.getElementById('col-filter-3').addEventListener('change', function() {
+    table.column(3).search(this.value ? '^' + escapeRegex(this.value) + '$' : '', true, false).draw();
+  });
+  document.getElementById('col-filter-4').addEventListener('change', function() {
+    table.column(4).search(this.value ? '^' + escapeRegex(this.value) + '$' : '', true, false).draw();
+  });
+  document.getElementById('col-filter-5').addEventListener('input', function() {
+    table.column(5).search(this.value).draw();
+  });
+  document.getElementById('col-filter-6').addEventListener('input', function() {
+    table.column(6).search(this.value).draw();
+  });
+
+  // Clear all filters
+  document.getElementById('clear-btn').addEventListener('click', function () {
+    table.search('').columns().search('').draw();
+    document.getElementById('global-search').value = '';
+    document.querySelectorAll('.col-filter-text').forEach(el => el.value = '');
+    document.querySelectorAll('.col-filter-select').forEach(el => el.selectedIndex = 0);
   });
 
   // Hide the default DataTables search box

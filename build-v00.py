@@ -6,33 +6,19 @@ Usage: python build.py
 
 import csv
 import html
-import json
 import os
 from datetime import date
 
 CSV_FILE = "trackers.csv"
 OUT_FILE = "index.html"
-CATEGORICAL_THRESHOLD = 10  # columns with <= this many unique values get a dropdown
 
 
 def load_csv(path):
     with open(path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         rows = list(reader)
-        columns = list(reader.fieldnames)
+        columns = reader.fieldnames
     return columns, rows
-
-
-def classify_columns(columns, rows):
-    """Return dict: col -> 'dropdown' | 'text' | 'hidden'"""
-    kinds = {}
-    for col in columns:
-        if col == "URL":
-            kinds[col] = "hidden"
-            continue
-        unique = set(r.get(col, "").strip() for r in rows if r.get(col, "").strip())
-        kinds[col] = "dropdown" if len(unique) <= CATEGORICAL_THRESHOLD else "text"
-    return kinds
 
 
 def build_header_row(columns):
@@ -44,72 +30,28 @@ def build_data_row(columns, row):
     cells = []
     for col in columns:
         val = row.get(col, "")
+        # If column is "Name" and URL column exists, make it a link
         if col == "Name" and "URL" in row and row["URL"].strip():
             content = f'<a href="{html.escape(row["URL"].strip())}" target="_blank" rel="noopener">{html.escape(val)}</a>'
+        elif col == "URL":
+            # Hide raw URL column — name column already links it
+            content = html.escape(val)
         else:
             content = html.escape(val)
         cells.append(f"<td>{content}</td>")
     return "<tr>" + "".join(cells) + "</tr>"
 
 
-def build_column_filters(columns, rows, kinds):
-    """Build the per-column filter controls row and the JS to wire them up."""
-    filter_cells = []
-    js_bindings = []
-
-    for i, col in enumerate(columns):
-        kind = kinds.get(col, "text")
-        if kind == "hidden":
-            filter_cells.append("<th></th>")
-            continue
-
-        if kind == "dropdown":
-            unique = sorted(
-                set(r.get(col, "").strip() for r in rows if r.get(col, "").strip())
-            )
-            options = '<option value="">— all —</option>' + "".join(
-                f'<option value="{html.escape(v)}">{html.escape(v)}</option>'
-                for v in unique
-            )
-            fid = f"col-filter-{i}"
-            filter_cells.append(
-                f'<th><select id="{fid}" class="col-filter col-filter-select" data-col="{i}">'
-                f"{options}</select></th>"
-            )
-            js_bindings.append(
-                f"""
-  document.getElementById('{fid}').addEventListener('change', function() {{
-    table.column({i}).search(this.value ? '^' + escapeRegex(this.value) + '$' : '', true, false).draw();
-  }});"""
-            )
-        else:
-            fid = f"col-filter-{i}"
-            filter_cells.append(
-                f'<th><input type="text" id="{fid}" class="col-filter col-filter-text" '
-                f'data-col="{i}" placeholder="filter…" autocomplete="off" /></th>'
-            )
-            js_bindings.append(
-                f"""
-  document.getElementById('{fid}').addEventListener('input', function() {{
-    table.column({i}).search(this.value).draw();
-  }});"""
-            )
-
-    filter_row = "<tr class='filter-row'>" + "".join(filter_cells) + "</tr>"
-    js_block = "".join(js_bindings)
-    return filter_row, js_block
-
-
 def build_html(columns, rows):
     today = date.today().isoformat()
-    kinds = classify_columns(columns, rows)
-
     header = build_header_row(columns)
-    filter_row, js_filter_bindings = build_column_filters(columns, rows, kinds)
     body_rows = "\n".join(build_data_row(columns, row) for row in rows)
 
+    # Determine index of URL column to hide it (0-based)
     url_col_index = columns.index("URL") if "URL" in columns else None
-    hide_url_js = f"table.column({url_col_index}).visible(false);" if url_col_index is not None else ""
+    hide_url_js = ""
+    if url_col_index is not None:
+        hide_url_js = f'table.column({url_col_index}).visible(false);'
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -166,10 +108,6 @@ def build_html(columns, rows):
 
     #search-box {{
       margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
     }}
 
     #search-box input {{
@@ -186,19 +124,6 @@ def build_html(columns, rows):
     }}
 
     #search-box input:focus {{ border-color: #4f8ef7; }}
-
-    #clear-btn {{
-      padding: 0.5rem 1rem;
-      font-size: 13px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      background: #fff;
-      color: #555;
-      cursor: pointer;
-      transition: background 0.15s;
-    }}
-
-    #clear-btn:hover {{ background: #f0f4ff; border-color: #4f8ef7; color: #1a1a2e; }}
 
     table.dataTable {{
       width: 100% !important;
@@ -223,39 +148,6 @@ def build_html(columns, rows):
     }}
 
     table.dataTable thead th:hover {{ background: #2a2a4e; }}
-
-    tr.filter-row th {{
-      background: #2a2a4e;
-      padding: 0.4rem 0.5rem;
-    }}
-
-    .col-filter-text {{
-      width: 100%;
-      padding: 0.3rem 0.5rem;
-      font-size: 12px;
-      border: 1px solid #445;
-      border-radius: 4px;
-      background: #1a1a2e;
-      color: #e8e8f0;
-      outline: none;
-    }}
-
-    .col-filter-text::placeholder {{ color: #6677aa; }}
-    .col-filter-text:focus {{ border-color: #4f8ef7; }}
-
-    .col-filter-select {{
-      width: 100%;
-      padding: 0.3rem 0.4rem;
-      font-size: 12px;
-      border: 1px solid #445;
-      border-radius: 4px;
-      background: #1a1a2e;
-      color: #e8e8f0;
-      outline: none;
-      cursor: pointer;
-    }}
-
-    .col-filter-select:focus {{ border-color: #4f8ef7; }}
 
     table.dataTable tbody tr {{
       border-bottom: 1px solid #ececf3;
@@ -324,14 +216,10 @@ def build_html(columns, rows):
 <main>
   <div id="search-box">
     <input type="text" id="global-search" placeholder="Search all columns…" autocomplete="off" />
-    <button id="clear-btn">Clear all filters</button>
   </div>
 
   <table id="trackers" class="dataTable" style="width:100%">
-    <thead>
-      {header}
-      {filter_row}
-    </thead>
+    <thead>{header}</thead>
     <tbody>
 {body_rows}
     </tbody>
@@ -346,14 +234,8 @@ def build_html(columns, rows):
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
 <script>
-  function escapeRegex(s) {{
-    return s.replace(/[.*+?^${{}}()|[\\]\\\\]/g, '\\\\$&');
-  }}
-
   const table = new DataTable('#trackers', {{
     pageLength: 25,
-    orderCellsTop: true,
-    fixedHeader: true,
     order: [],
     language: {{
       search: '',
@@ -366,20 +248,9 @@ def build_html(columns, rows):
 
   {hide_url_js}
 
-  // Global search
+  // Wire up our own search box to DataTables
   document.getElementById('global-search').addEventListener('input', function () {{
     table.search(this.value).draw();
-  }});
-
-  // Per-column filters
-  {js_filter_bindings}
-
-  // Clear all filters
-  document.getElementById('clear-btn').addEventListener('click', function () {{
-    table.search('').columns().search('').draw();
-    document.getElementById('global-search').value = '';
-    document.querySelectorAll('.col-filter-text').forEach(el => el.value = '');
-    document.querySelectorAll('.col-filter-select').forEach(el => el.selectedIndex = 0);
   }});
 
   // Hide the default DataTables search box
