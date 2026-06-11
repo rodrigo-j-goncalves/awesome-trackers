@@ -165,7 +165,7 @@ def build_html(columns, rows):
     pageLength: 25,
     orderCellsTop: true,
     fixedHeader: true,
-    order: [],
+    order: [[0, 'asc']],
     language: {{
       search: '',
       searchPlaceholder: 'Search…',

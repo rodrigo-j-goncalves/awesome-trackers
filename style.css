@@ -53,7 +53,7 @@ header {
 .header-text .meta {
   margin: 0;
   font-size: 0.82rem;
-  color: var(--muted);
+  color: var(--text-em);
 }
 
 /* --- Theme toggle button --- */
