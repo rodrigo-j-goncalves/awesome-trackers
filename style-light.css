@@ -1,0 +1,47 @@
+/* =============================================
+   Awesome Trackers — Solarized Light theme
+   Edit this file to customize the light theme.
+   ============================================= */
+
+/* --- Solarized Light palette ---
+   base3  #fdf6e3  lightest bg
+   base2  #eee8d5  surface
+   base1  #93a1a1  secondary text
+   base0  #839496  body text
+   base00 #657b83  emphasis text
+   base01 #586e75  strong text
+   base02 #073642  headings / th bg
+   base03 #002b36  darkest (unused)
+   yellow #b58900
+   cyan   #2aa198
+   blue   #268bd2
+*/
+
+[data-theme="light"] {
+  --bg:                  #fdf6e3;
+  --surface:             #eee8d5;
+  --surface2:            #e8e2cf;
+  --border:              #93a1a1;
+  --text:                #657b83;
+  --text-em:             #586e75;
+  --text-strong:         #073642;
+  --muted:               #93a1a1;
+  --accent:              #2aa198;
+  --link:                #268bd2;
+  --link-hover:          #2aa198;
+  --code-bg:             #eee8d5;
+  --code-fg:             #b58900;
+  --btn-bg:              #eee8d5;
+  --btn-fg:              #657b83;
+  --row-odd:             #fdf6e3;
+  --row-even:            #f5eedb;
+  --row-hover:           #e8f4f0;
+  --th-bg:               #073642;
+  --th-fg:               #93a1a1;
+  --th-hover:            #0a4555;
+  --filter-bg:           #eee8d5;
+  --filter-border-bottom:#2aa198;
+  --input-bg:            #fdf6e3;
+  --shadow:              rgba(0,0,0,0.1);
+  --toggle-label:        "🌙 Dark";
+}

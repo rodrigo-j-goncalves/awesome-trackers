@@ -1,0 +1,274 @@
+/* =============================================
+   Awesome Trackers — base styles
+   Theme variables are in style-dark.css and
+   style-light.css. Do not put colors here.
+   ============================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+
+/* --- Header --- */
+header {
+  background: var(--surface);
+  color: var(--text-em);
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 3px solid var(--accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.header-text h1 {
+  margin: 0 0 0.2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-strong);
+}
+
+.header-text .author {
+  font-size: 0.85rem;
+  color: var(--text-em);
+  margin: 0 0 0.15rem;
+}
+
+.header-text .author strong {
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.header-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.header-text a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.header-text a:hover { color: var(--link-hover); text-decoration: underline; }
+
+/* --- Theme toggle button --- */
+#theme-toggle {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+#theme-toggle:hover { border-color: var(--accent); color: var(--text-strong); }
+
+/* --- Main layout --- */
+main {
+  padding: 2rem 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- Search bar --- */
+#search-box {
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+#search-box input {
+  width: 100%;
+  max-width: 420px;
+  padding: 0.5rem 0.85rem;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text-em);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+#search-box input::placeholder { color: var(--muted); }
+#search-box input:focus { border-color: var(--accent); }
+
+#clear-btn {
+  padding: 0.5rem 1rem;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+#clear-btn:hover { border-color: var(--accent); color: var(--text-strong); }
+
+/* --- DataTables overrides --- */
+.dataTables_wrapper { color: var(--text); }
+
+table.dataTable {
+  width: 100% !important;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+table.dataTable thead th {
+  background: var(--th-bg);
+  color: var(--th-fg);
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--surface);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+table.dataTable thead th:hover { background: var(--th-hover); color: var(--text-strong); }
+
+tr.filter-row th {
+  background: var(--filter-bg);
+  padding: 0.4rem 0.5rem;
+  border-bottom: 2px solid var(--filter-border-bottom);
+}
+
+.col-filter-text {
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text);
+  outline: none;
+}
+
+.col-filter-text::placeholder { color: var(--muted); }
+.col-filter-text:focus { border-color: var(--accent); }
+
+.col-filter-select {
+  width: 100%;
+  padding: 0.3rem 0.4rem;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text);
+  outline: none;
+  cursor: pointer;
+}
+
+.col-filter-select:focus { border-color: var(--accent); }
+
+table.dataTable tbody tr {
+  border-bottom: 1px solid var(--bg);
+  transition: background 0.1s;
+}
+
+table.dataTable tbody tr:last-child { border-bottom: none; }
+table.dataTable tbody tr.odd  { background: var(--row-odd); }
+table.dataTable tbody tr.even { background: var(--row-even); }
+table.dataTable tbody tr.odd:hover,
+table.dataTable tbody tr.even:hover { background: var(--row-hover); }
+
+table.dataTable tbody td {
+  padding: 0.65rem 1rem;
+  font-size: 14px;
+  vertical-align: top;
+  color: var(--text);
+  border-top: none;
+}
+
+table.dataTable tbody td a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+table.dataTable tbody td a:hover { color: var(--link-hover); text-decoration: underline; }
+
+.dataTables_wrapper .dataTables_info {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 0.75rem;
+}
+
+.dataTables_wrapper .dataTables_paginate { margin-top: 0.75rem; }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text) !important;
+  border: 1px solid transparent;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text-strong) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--bg) !important;
+  font-weight: 600;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+  color: var(--muted) !important;
+  cursor: default;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+footer a { color: var(--link); text-decoration: none; }
+footer a:hover { color: var(--link-hover); }
+
+footer code {
+  background: var(--code-bg);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  font-size: 11px;
+  color: var(--code-fg);
+}
+
+/* --- Responsive --- */
+@media (max-width: 700px) {
+  main { padding: 1rem; }
+  header { padding: 1rem; flex-direction: column; }
+  table.dataTable tbody td { font-size: 12px; padding: 0.5rem 0.6rem; }
+}
