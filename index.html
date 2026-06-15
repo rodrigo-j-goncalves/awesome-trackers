@@ -17,7 +17,7 @@
     <p class="tagline">A curated list of tools for 2D/3D object and trajectory tracking &mdash;
       <a href="https://github.com/rodrigo-j-goncalves/awesome-trackers">contribute on GitHub</a>
     </p>
-    <p class="meta">Maintainer: Rodrigo J. Gonçalves &nbsp;|&nbsp; Last updated: 2026-06-11</p>
+    <p class="meta">Maintainer: Rodrigo J. Gonçalves &nbsp;|&nbsp; Last updated: 2026-06-15</p>
   </div>
   <button id="theme-toggle" aria-label="Toggle light/dark theme">☀️ Light</button>
 </header>
@@ -38,7 +38,6 @@
 <tr><td><a href="https://www.cellprofiler.org/" target="_blank" rel="noopener">CellProfiler</a></td><td>https://www.cellprofiler.org/</td><td>Standalone GUI</td><td>GUI; Python</td><td>free</td><td>Cell biology</td><td>Pipeline-based; LAP tracking module; good for fluorescence; batch processing</td></tr>
 <tr><td><a href="https://www.mackenziemathislab.org/deeplabcut" target="_blank" rel="noopener">DeepLabCut</a></td><td>https://www.mackenziemathislab.org/deeplabcut</td><td>Deep learning</td><td>ML/DL; Python</td><td>free</td><td>Pose / body parts</td><td>Keypoint tracking; originally for animals; 2D + 3D; needs labeled data</td></tr>
 <tr><td><a href="https://icy.bioimageanalysis.org/" target="_blank" rel="noopener">Icy</a></td><td>https://icy.bioimageanalysis.org/</td><td>Standalone GUI</td><td>GUI</td><td>free</td><td>Bio imaging</td><td>Java; plugin ecosystem; spot detector + track manager; less maintained now</td></tr>
-<tr><td><a href="https://idtracker.ai/" target="_blank" rel="noopener">idtracker.ai</a></td><td>https://idtracker.ai/</td><td>Deep learning</td><td>Python; GUI</td><td>free</td><td>Apparently, anything!</td><td>idtracker.ai is a Python package available on PyPI, fully compatible with Windows, Linux, and macOS.</td></tr>
 <tr><td><a href="https://www.imaris.ox.com/" target="_blank" rel="noopener">Imaris</a></td><td>https://www.imaris.ox.com/</td><td>Standalone GUI</td><td>GUI</td><td>paid</td><td>3D bio imaging</td><td>Gold standard for fluorescent cell tracking; 2D also supported; expensive</td></tr>
 <tr><td><a href="https://github.com/yfukai/laptrack" target="_blank" rel="noopener">Laptrack</a></td><td>https://github.com/yfukai/laptrack</td><td>Python</td><td>Python</td><td>free</td><td>General 2D/3D</td><td>LAP-based; modular cost functions; gap closing; integrates with napari</td></tr>
 <tr><td><a href="https://imagej.net/plugins/manual-tracking" target="_blank" rel="noopener">Manual Tracker</a></td><td>https://imagej.net/plugins/manual-tracking</td><td>Fiji/ImageJ</td><td>GUI</td><td>free</td><td>Low-density / QC</td><td>Fiji plugin; click-to-track; useful for ground truth and validation</td></tr>
@@ -55,12 +54,15 @@
 <tr><td><a href="https://imagej.net/plugins/trackmate/" target="_blank" rel="noopener">TrackMate</a></td><td>https://imagej.net/plugins/trackmate/</td><td>Fiji/ImageJ</td><td>GUI; Python</td><td>free</td><td>Fluorescent spots</td><td>Fiji plugin; LoG/DoG/HessianDet + LAP/KF/simple; scripting API; widely cited</td></tr>
 <tr><td><a href="http://soft-matter.github.io/trackpy/" target="_blank" rel="noopener">Trackpy</a></td><td>http://soft-matter.github.io/trackpy/</td><td>Python</td><td>Python</td><td>free</td><td>Colloids / plankton</td><td>Pandas-based; Crocker-Grier linking; fast; Pythonic; good for batch</td></tr>
 <tr><td><a href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noopener">YOLO + ByteTrack</a></td><td>https://github.com/ultralytics/ultralytics</td><td>Deep learning</td><td>ML/DL; Python</td><td>free</td><td>Multi-object / dense</td><td>Detection + tracking pipeline; needs training data; fast inference</td></tr>
+<tr><td><a href="https://idtracker.ai" target="_blank" rel="noopener">idtracker.ai</a></td><td>https://idtracker.ai</td><td>Deep learning</td><td>Python; GUI</td><td>free</td><td>Multi-animal identity tracking</td><td>Self-supervised from video (contrastive learning); no labeled data needed; species-agnostic; up to 100 individuals at &gt;99.9% ID accuracy; outputs CSV/HDF5/NumPy</td></tr>
+<tr><td><a href="https://github.com/NirAharon/BoT-SORT" target="_blank" rel="noopener">BoT-SORT</a></td><td>https://github.com/NirAharon/BoT-SORT</td><td>Deep learning</td><td>Python</td><td>free</td><td>Multi-object / dense</td><td>SORT + camera motion compensation + improved Kalman filter; needs upstream detector; strong on standard MOT benchmarks</td></tr>
+<tr><td><a href="https://github.com/tryolabs/norfair" target="_blank" rel="noopener">Norfair</a></td><td>https://github.com/tryolabs/norfair</td><td>Python</td><td>Python</td><td>free</td><td>Custom pipelines</td><td>Lightweight MOT library; user-defined distance function; plugs into any detector; no training needed; Pythonic</td></tr>
     </tbody>
   </table>
 </main>
 
 <footer>
-  Generated from <code>trackers.csv</code> on 2026-06-11 &mdash;
+  Generated from <code>trackers.csv</code> on 2026-06-15 &mdash;
   <a href="https://github.com/rodrigo-j-goncalves/awesome-trackers">awesome-trackers</a>
 </footer>
 

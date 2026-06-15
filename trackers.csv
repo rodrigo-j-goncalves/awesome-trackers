@@ -3,7 +3,6 @@ Btrack,https://github.com/quantumjot/btrack,Python,Python,free,Cell tracking,Bay
 CellProfiler,https://www.cellprofiler.org/,Standalone GUI,GUI; Python,free,Cell biology,Pipeline-based; LAP tracking module; good for fluorescence; batch processing
 DeepLabCut,https://www.mackenziemathislab.org/deeplabcut,Deep learning,ML/DL; Python,free,Pose / body parts,Keypoint tracking; originally for animals; 2D + 3D; needs labeled data
 Icy,https://icy.bioimageanalysis.org/,Standalone GUI,GUI,free,Bio imaging,Java; plugin ecosystem; spot detector + track manager; less maintained now
-idtracker.ai,https://idtracker.ai/,Deep learning,Python; GUI,free,"Apparently, anything!","idtracker.ai is a Python package available on PyPI, fully compatible with Windows, Linux, and macOS."
 Imaris,https://www.imaris.ox.com/,Standalone GUI,GUI,paid,3D bio imaging,Gold standard for fluorescent cell tracking; 2D also supported; expensive
 Laptrack,https://github.com/yfukai/laptrack,Python,Python,free,General 2D/3D,LAP-based; modular cost functions; gap closing; integrates with napari
 Manual Tracker,https://imagej.net/plugins/manual-tracking,Fiji/ImageJ,GUI,free,Low-density / QC,Fiji plugin; click-to-track; useful for ground truth and validation
@@ -20,3 +19,6 @@ Tracker,https://physlets.org/tracker/,Standalone GUI,GUI,free,Physics / educatio
 TrackMate,https://imagej.net/plugins/trackmate/,Fiji/ImageJ,GUI; Python,free,Fluorescent spots,Fiji plugin; LoG/DoG/HessianDet + LAP/KF/simple; scripting API; widely cited
 Trackpy,http://soft-matter.github.io/trackpy/,Python,Python,free,Colloids / plankton,Pandas-based; Crocker-Grier linking; fast; Pythonic; good for batch
 YOLO + ByteTrack,https://github.com/ultralytics/ultralytics,Deep learning,ML/DL; Python,free,Multi-object / dense,Detection + tracking pipeline; needs training data; fast inference
+idtracker.ai,https://idtracker.ai,Deep learning,Python; GUI,free,Multi-animal identity tracking,Self-supervised from video (contrastive learning); no labeled data needed; species-agnostic; up to 100 individuals at >99.9% ID accuracy; outputs CSV/HDF5/NumPy
+BoT-SORT,https://github.com/NirAharon/BoT-SORT,Deep learning,Python,free,Multi-object / dense,SORT + camera motion compensation + improved Kalman filter; needs upstream detector; strong on standard MOT benchmarks
+Norfair,https://github.com/tryolabs/norfair,Python,Python,free,Custom pipelines,Lightweight MOT library; user-defined distance function; plugs into any detector; no training needed; Pythonic
