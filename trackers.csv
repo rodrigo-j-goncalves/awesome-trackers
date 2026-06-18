@@ -1,24 +1,26 @@
-Name,URL,Category,Type,License,Best for,Notes
-Btrack,https://github.com/quantumjot/btrack,Python,Python,free,Cell tracking,Bayesian belief propagation; handles division/death; napari plugin available
-CellProfiler,https://www.cellprofiler.org/,Standalone GUI,GUI; Python,free,Cell biology,Pipeline-based; LAP tracking module; good for fluorescence; batch processing
-DeepLabCut,https://www.mackenziemathislab.org/deeplabcut,Deep learning,ML/DL; Python,free,Pose / body parts,Keypoint tracking; originally for animals; 2D + 3D; needs labeled data
-Icy,https://icy.bioimageanalysis.org/,Standalone GUI,GUI,free,Bio imaging,Java; plugin ecosystem; spot detector + track manager; less maintained now
-Imaris,https://www.imaris.ox.com/,Standalone GUI,GUI,paid,3D bio imaging,Gold standard for fluorescent cell tracking; 2D also supported; expensive
-Laptrack,https://github.com/yfukai/laptrack,Python,Python,free,General 2D/3D,LAP-based; modular cost functions; gap closing; integrates with napari
-Manual Tracker,https://imagej.net/plugins/manual-tracking,Fiji/ImageJ,GUI,free,Low-density / QC,Fiji plugin; click-to-track; useful for ground truth and validation
-napari-btrack,https://www.napari-hub.org/plugins/btrack,Napari ecosystem,Python; GUI,free,Cell tracking,Btrack GUI in napari; good for dense dividing cells
-napari-trackpy,https://www.napari-hub.org/plugins/napari-trackpy,Napari ecosystem,Python; GUI,free,Interactive + batch,Trackpy wrapped in napari; visual inspection + parameter tuning
-OpenCV,https://opencv.org/,Python,Python; C++,free,Custom pipelines,Background subtraction + contour detection + CSRT/KCF trackers; very flexible but requires coding
-OpenPTV / PyPTV,https://www.openptv.net/,Plankton / aquatic,Python; C++,free,3D PTV (multi-cam),3D reconstruction from multi-camera; 2D also possible per-camera
-ParticleTracker 2D and 3D,https://sbalzarini-lab.org/ParticleTracker/,Fiji/ImageJ,GUI,free,Fluorescent particles,An ImageJ Plugin for multiple particle detection and tracking from digital videos. Based on Sbalzarini & Koumoutsakos 2005. Part of the MOSAIC toolbox
-PlanktoScope,https://www.planktoscope.org/,Plankton / aquatic,Python,partial,In-situ plankton,Associated with PlanktoScope hardware; flow-through imaging; classification-focused
-SAM 2,https://github.com/facebookresearch/sam2,Deep learning,ML/DL; Python,free,Arbitrary objects,Segment Anything Model 2; video segmentation + tracking; zero-shot; very promising for plankton
-SAM 3,https://github.com/facebookresearch/sam3,Deep learning,ML/DL; Python,free,Arbitrary objects (text prompt),SAM 3 adds text/exemplar prompts and tracks all instances at once; SAM 3.1 adds faster multi-object tracking
-SLEAP,https://sleap.ai/,Deep learning,ML/DL; GUI,free,Animal pose,Multi-animal pose tracking; GUI for labeling + training; DLC alternative
-Tracker,https://physlets.org/tracker/,Standalone GUI,GUI,free,Physics / education,Java; manual + auto-tracking; calibration; widely used in biomechanics and teaching
-TrackMate,https://imagej.net/plugins/trackmate/,Fiji/ImageJ,GUI; Python,free,Fluorescent spots,Fiji plugin; LoG/DoG/HessianDet + LAP/KF/simple; scripting API; widely cited
-Trackpy,http://soft-matter.github.io/trackpy/,Python,Python,free,Colloids / plankton,Pandas-based; Crocker-Grier linking; fast; Pythonic; good for batch
-YOLO + ByteTrack,https://github.com/ultralytics/ultralytics,Deep learning,ML/DL; Python,free,Multi-object / dense,Detection + tracking pipeline; needs training data; fast inference
-idtracker.ai,https://idtracker.ai,Deep learning,Python; GUI,free,Multi-animal identity tracking,Self-supervised from video (contrastive learning); no labeled data needed; species-agnostic; up to 100 individuals at >99.9% ID accuracy; outputs CSV/HDF5/NumPy
-BoT-SORT,https://github.com/NirAharon/BoT-SORT,Deep learning,Python,free,Multi-object / dense,SORT + camera motion compensation + improved Kalman filter; needs upstream detector; strong on standard MOT benchmarks
-Norfair,https://github.com/tryolabs/norfair,Python,Python,free,Custom pipelines,Lightweight MOT library; user-defined distance function; plugs into any detector; no training needed; Pythonic
+Name,URL,Ecosystem,Domain,Language,License,Best for,Notes,3D support
+Btrack,https://github.com/quantumjot/btrack,Library,Biology,Python,free,Cell tracking,Bayesian belief propagation; handles division/death; napari plugin available,yes
+CellProfiler,https://www.cellprofiler.org/,Standalone,Biology,GUI; Python,free,Cell biology,Pipeline-based; LAP tracking module; good for fluorescence; batch processing,no
+DeepLabCut,https://www.mackenziemathislab.org/deeplabcut,Framework,Animal behavior,ML/DL; Python,free,Pose / body parts,Keypoint tracking; originally for animals; 2D + 3D; needs labeled data,yes
+Icy,https://icy.bioimageanalysis.org/,Standalone,Biology,GUI,free,Bio imaging,Java; plugin ecosystem; spot detector + track manager; less maintained now,partial
+Imaris,https://www.imaris.ox.com/,Standalone,Biology,GUI,paid,3D bio imaging,Gold standard for fluorescent cell tracking; 2D also supported; expensive,yes
+Laptrack,https://github.com/yfukai/laptrack,Library,General,Python,free,General 2D/3D,LAP-based; modular cost functions; gap closing; integrates with napari,yes
+Manual Tracker,https://imagej.net/plugins/manual-tracking,Fiji/ImageJ,Biology,GUI,free,Low-density / QC,Fiji plugin; click-to-track; useful for ground truth and validation,no
+napari-btrack,https://www.napari-hub.org/plugins/btrack,Napari,Biology,Python; GUI,free,Cell tracking,Btrack GUI in napari; good for dense dividing cells,yes
+napari-trackpy,https://www.napari-hub.org/plugins/napari-trackpy,Napari,General,Python; GUI,free,Interactive + batch,Trackpy wrapped in napari; visual inspection + parameter tuning,partial
+OpenCV,https://opencv.org/,Library,Computer vision,Python; C++,free,Custom pipelines,Background subtraction + contour detection + CSRT/KCF trackers; very flexible but requires coding,partial
+OpenPTV / PyPTV,https://www.openptv.net/,Library,Plankton,Python; C++,free,3D PTV (multi-cam),3D reconstruction from multi-camera; 2D also possible per-camera,yes
+ParticleTracker 2D and 3D,https://sbalzarini-lab.org/ParticleTracker/,Fiji/ImageJ,Biology,GUI,free,Fluorescent particles,ImageJ plugin; multiple particle detection and tracking; based on Sbalzarini & Koumoutsakos 2005; part of MOSAIC toolbox,yes
+PlanktoScope,https://www.planktoscope.org/,Standalone,Plankton,Python,partial,In-situ plankton,Associated with PlanktoScope hardware; flow-through imaging; classification-focused,no
+SAM 2,https://github.com/facebookresearch/sam2,Library,Computer vision,ML/DL; Python,free,Arbitrary objects,Segment Anything Model 2; video segmentation + tracking; zero-shot; very promising for plankton,no
+SAM 3,https://github.com/facebookresearch/sam3,Library,Computer vision,ML/DL; Python,free,Arbitrary objects (text prompt),SAM 3 adds text/exemplar prompts and tracks all instances at once; SAM 3.1 adds faster multi-object tracking,no
+SLEAP,https://sleap.ai/,Standalone,Animal behavior,ML/DL; Python; GUI,free,Animal pose,Multi-animal pose tracking; GUI for labeling + training; DLC alternative,partial
+Tracker,https://physlets.org/tracker/,Standalone,General,GUI,free,Physics / education,Java; manual + auto-tracking; calibration; widely used in biomechanics and teaching,no
+TrackMate,https://imagej.net/plugins/trackmate/,Fiji/ImageJ,Biology,GUI; Python,free,Fluorescent spots,Fiji plugin; LoG/DoG/HessianDet + LAP/KF/simple; scripting API; widely cited,no
+Trackpy,http://soft-matter.github.io/trackpy/,Library,General,Python,free,Colloids / plankton,Pandas-based; Crocker-Grier linking; fast; Pythonic; good for batch,partial
+YOLO + ByteTrack,https://github.com/ultralytics/ultralytics,Framework,Computer vision,ML/DL; Python,free,Multi-object / dense,Detection + tracking pipeline; needs training data; fast inference,no
+idtracker.ai,https://idtracker.ai,Standalone,Animal behavior,Python; GUI,free,Multi-animal identity tracking,Self-supervised from video (contrastive learning); no labeled data needed; species-agnostic; up to 100 individuals at >99.9% ID accuracy; outputs CSV/HDF5/NumPy,no
+BoT-SORT,https://github.com/NirAharon/BoT-SORT,Library,Computer vision,Python,free,Multi-object / dense,SORT + camera motion compensation + improved Kalman filter; needs upstream detector; strong on standard MOT benchmarks,no
+Norfair,https://github.com/tryolabs/norfair,Library,General,Python,free,Custom pipelines,Lightweight MOT library; user-defined distance function; plugs into any detector; no training needed; Pythonic,partial
+Flowtracks / postptv,https://github.com/OpenPTV/postptv,Library,Plankton,Python,free,3D-PTV trajectory data management,Python package for managing 3D-PTV trajectory data; HDF5-based format; format-agnostic; natural companion to OpenPTV/PyPTV,yes
+TRex,https://www.trex.run/,Standalone,Animal behavior,C++; Python,free,Multi-animal tracking / biology,Fast background-subtraction tracker; up to 256 individuals; real-time 60Hz; DL-based identity; GUI + Python scripting; Linux/Win/macOS,no
