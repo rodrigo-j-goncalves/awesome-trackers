@@ -15,7 +15,8 @@ PlanktoScope,https://www.planktoscope.org/,Standalone,Plankton,Python,partial,In
 SAM 2,https://github.com/facebookresearch/sam2,Library,Computer vision,ML/DL; Python,free,Arbitrary objects,Segment Anything Model 2; video segmentation + tracking; zero-shot; very promising for plankton,no
 SAM 3,https://github.com/facebookresearch/sam3,Library,Computer vision,ML/DL; Python,free,Arbitrary objects (text prompt),SAM 3 adds text/exemplar prompts and tracks all instances at once; SAM 3.1 adds faster multi-object tracking,no
 SLEAP,https://sleap.ai/,Standalone,Animal behavior,ML/DL; Python; GUI,free,Animal pose,Multi-animal pose tracking; GUI for labeling + training; DLC alternative,partial
-Tracker,https://physlets.org/tracker/,Standalone,General,GUI,free,Physics / education,Java; manual + auto-tracking; calibration; widely used in biomechanics and teaching,no
+Tracker,https://physlets.org/tracker/,Standalone,General,GUI,free,Physics / education,Java; manual + auto-tracking; calibration; widely used in biomechanics and teaching; GitHub: https://github.com/OpenSourcePhysics/tracker,no
+Tracker Online,https://opensourcephysics.github.io/tracker-online/,Standalone,General,JavaScript,free,Physics / education (browser),Browser-based version of OSP Tracker; no install required; video analysis + kinematics; calibration tools,no
 TrackMate,https://imagej.net/plugins/trackmate/,Fiji/ImageJ,Biology,GUI; Python,free,Fluorescent spots,Fiji plugin; LoG/DoG/HessianDet + LAP/KF/simple; scripting API; widely cited,no
 Trackpy,http://soft-matter.github.io/trackpy/,Library,General,Python,free,Colloids / plankton,Pandas-based; Crocker-Grier linking; fast; Pythonic; good for batch,partial
 YOLO + ByteTrack,https://github.com/ultralytics/ultralytics,Framework,Computer vision,ML/DL; Python,free,Multi-object / dense,Detection + tracking pipeline; needs training data; fast inference,no
