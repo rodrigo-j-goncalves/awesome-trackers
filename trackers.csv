@@ -2,6 +2,7 @@ Name,URL,Ecosystem,Domain,Language,License,Best for,Notes,3D support
 Btrack,https://github.com/quantumjot/btrack,Library,Biology,Python,free,Cell tracking,Bayesian belief propagation; handles division/death; napari plugin available,yes
 CellProfiler,https://www.cellprofiler.org/,Standalone,Biology,GUI; Python,free,Cell biology,Pipeline-based; LAP tracking module; good for fluorescence; batch processing,no
 DeepLabCut,https://www.mackenziemathislab.org/deeplabcut,Framework,Animal behavior,ML/DL; Python,free,Pose / body parts,Keypoint tracking; originally for animals; 2D + 3D; needs labeled data,yes
+DeepTrack2,https://github.com/DeepTrackAI/DeepTrack2,Library,Biology,Python; ML/DL,free,Deep learning microscopy tracking,Deep learning framework for microscopy; U-Net trained on simulated data for particle detection and localization; sim-to-real transfer; modular architecture via deeplay,
 Icy,https://icy.bioimageanalysis.org/,Standalone,Biology,GUI,free,Bio imaging,Java; plugin ecosystem; spot detector + track manager; less maintained now,partial
 Imaris,https://www.imaris.ox.com/,Standalone,Biology,GUI,paid,3D bio imaging,Gold standard for fluorescent cell tracking; 2D also supported; expensive,yes
 Laptrack,https://github.com/yfukai/laptrack,Library,General,Python,free,General 2D/3D,LAP-based; modular cost functions; gap closing; integrates with napari,yes
